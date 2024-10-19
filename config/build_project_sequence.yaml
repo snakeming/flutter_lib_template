@@ -1,0 +1,95 @@
+# build sequence MUST start from least dependency first
+build_sequence:
+  # no internal dependency
+  - dart_dio_interceptor
+  # Simple geometry (Pont/Line/Polyline/Polygon) support based on in-house 'string format'
+  # no internal dependency
+  - dart_geo_string
+  # no internal dependency
+  - dart_sm_log
+  # no internal dependency
+  - dart_lodash
+  # depends on dart_geo_string
+  - dart_geofence
+  # depends on dart_dio_interceptor
+  - dart_headstart
+  # depends on  dart_dio_interceptor, dart_lodash, dart_headstart
+  - dart_headstart_request
+
+  # depends on (most of the above)
+  - dart_smart_parcel
+
+  # no internal dependency
+  - dart_s2cell
+
+
+  # no test, no internal dependency (has a flutter widget)
+  # - dart_sm_device_info
+
+
+  # dart_lodash, dart_headstart, dart_headstart
+  # data like assets/mock_data/EventDispatchingPartnerOrder/template/partner_order.json
+  # need to copy to dependent project.
+  # use the following command to copy the mock data to dependent project
+  # /Users/cliff/Documents/GitHub/copy_mock_data.php
+  - dart_sp_mock_order_data
+
+  # no internal dependency
+  - dart_key_value_cache
+
+  # (most of the dart_smart_parcel)
+  # flutter_sp_widget, flutter_sp_user_bloc, dart_sp_mock_order_data
+  - dart_sp_task_manager
+
+  # depends on 
+  # dart_smart_parcel, dart_sp_task_manager
+  # flutter_fcm_notification, flutter_sm_notification_bloc, flutter_sp_user_bloc
+  # 
+  - dart_sp_message_handler
+
+
+  # DEMO Project, ignore
+  # - flutter_app_link_demo
+  # - flutter_fcm_demo
+  # - flutter_fcm_demo2
+
+  # onboarding_screen, used by smart_go
+  # - flutter_onboarding_screen
+  # smart_go home screen, check backend connection
+  # - flutter_connectivity_check
+
+  # # Utility, not used in production
+  # - flutter_custom_icon_config
+  # # Utility, not used in production,
+  # # help to update the translation file
+  # - flutter_sp_l10n
+
+  # # Widget
+  # - flutter_sm_widget
+  # - flutter_sp_widget
+  # - flutter_sm_map
+
+  # Bloc
+  # - flutter_sm_location_bloc
+  # - flutter_sm_notification_bloc
+  # - flutter_sp_user_bloc
+
+  # confirmed in use
+  # - flutter_sm_app_style
+  # - flutter_sp_setting_screen
+  # - flutter_sp_task_manager
+  # - flutter_sm_log_manager
+  # - flutter_fcm_notification
+
+  
+  # NOT IN USE
+  # - flutter_hive_cache
+  # - flutter_sm_dev
+  # - flutter_sm_im
+  # (seems for testing flutter_sm_notification_bloc)
+  # - flutter_sm_notification
+  
+  
+  
+  
+ 
