@@ -43,6 +43,13 @@
             }
         },
         {
+            "type": "path",
+            "url": "/Users/cliff/Documents/smgit/sm-php-geo/",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
             "type": "composer",
             "url": "https://packagist.zeek.one"
         },
@@ -64,7 +71,8 @@
         "smartminds/sm-php-xlsx-md-table": ">=0.1.5",
         "smartminds/sm-php-markdown-builder": ">=0.1.8",
         "smartminds/sm-php-saas-core-base": "@dev",
-        "smartminds/sm-php-yaml-front-matter": "@dev"
+        "smartminds/sm-php-yaml-front-matter": "@dev",
+        "smartminds/sm-php-geo": "@dev"
     },
     "autoload": {
         "psr-4": {

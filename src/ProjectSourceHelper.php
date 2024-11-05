@@ -19,12 +19,16 @@ class ProjectSourceHelper{
     /**
      * @testFunction testProjectSourceHelperGetBuildProjectSequence
      */
-    public static function getBuildProjectSequence():array{
+    public static function getBuildProjectSequence(int $project_type=ProjectType::DART):array{
 
         $root_path = Config::rootPath();
 
         // read 'build_project_sequence' yaml config
-        $yaml_path = \SMUtil\File::join($root_path, 'config', 'build_project_sequence.yaml');
+        $yaml_path = \SMUtil\File::join($root_path, 'config', 'build_project_sequence_dart.yaml');
+        if ($project_type == ProjectType::FLUTTER){
+            $yaml_path = \SMUtil\File::join($root_path, 'config', 'build_project_sequence_flutter.yaml');
+        }
+
         $yaml = file_get_contents($yaml_path);
         $config = \Symfony\Component\Yaml\Yaml::parse($yaml);
         return $config['build_sequence'];

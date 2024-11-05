@@ -1,0 +1,50 @@
+# build sequence MUST start from least dependency first
+build_sequence:
+  
+
+
+  # DEMO Project, ignore
+  # - flutter_app_link_demo
+  # - flutter_fcm_demo
+  # - flutter_fcm_demo2
+
+  # onboarding_screen, used by smart_go
+  # - flutter_onboarding_screen
+  # smart_go home screen, check backend connection
+  # - flutter_connectivity_check
+
+  # # Utility, not used in production
+  # - flutter_custom_icon_config
+  # # Utility, not used in production,
+  # # help to update the translation file
+  # - flutter_sp_l10n
+
+  # # Widget
+  # - flutter_sm_widget
+  # - flutter_sp_widget
+  - flutter_sm_map
+
+  # Bloc
+  # - flutter_sm_location_bloc
+  # - flutter_sm_notification_bloc
+  # - flutter_sp_user_bloc
+
+  # confirmed in use
+  # - flutter_sm_app_style
+  # - flutter_sp_setting_screen
+  # - flutter_sp_task_manager
+  # - flutter_sm_log_manager
+  # - flutter_fcm_notification
+
+  
+  # NOT IN USE
+  # - flutter_hive_cache
+  # - flutter_sm_dev
+  # - flutter_sm_im
+  # (seems for testing flutter_sm_notification_bloc)
+  # - flutter_sm_notification
+  
+  
+  
+  
+ 
