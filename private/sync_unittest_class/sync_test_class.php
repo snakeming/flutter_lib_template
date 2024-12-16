@@ -8,10 +8,13 @@
 
 //=========== Configuration ============
 
+// Test env
+$config_file = __DIR__ . '/config/TestEnv.ini';
+
 // Geofence
 // $config_file = __DIR__ . '/config/Geofence.ini';
 
-$config_file = __DIR__ . '/config/DomainDataSource.ini';
+// $config_file = __DIR__ . '/config/DomainDataSource.ini';
 // $config_file = __DIR__ . '/config/DartSpTaskMangerOnly.ini';
 // $config_file = __DIR__ . '/config/DartSpTaskMangerAndDependent.ini';
 
@@ -19,6 +22,8 @@ $config_file = __DIR__ . '/config/DomainDataSource.ini';
 
 // loginManager not completed yet
 // $config_file = __DIR__ . '/config/LoginManagerTestHelper.ini';
+// $config_file = __DIR__ . '/config/DummyPartnerOnlyData.ini';
+// dummy tenant setting
 // $config_file = __DIR__ . '/config/Tenant.ini';
 
 // dart_smart_parcel ONLY
