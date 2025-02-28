@@ -9,14 +9,19 @@
 //=========== Configuration ============
 
 // Test env
-$config_file = __DIR__ . '/config/TestEnv.ini';
+// $config_file = __DIR__ . '/config/TestEnv.ini';
+
+// $config_file = __DIR__ . '/config/SmEvent.ini';
 
 // Geofence
 // $config_file = __DIR__ . '/config/Geofence.ini';
 
 // $config_file = __DIR__ . '/config/DomainDataSource.ini';
+// dart_smart_parcel ONLY
+// $config_file = __DIR__ . '/config/DartSmartParcelOnly.ini';
+
 // $config_file = __DIR__ . '/config/DartSpTaskMangerOnly.ini';
-// $config_file = __DIR__ . '/config/DartSpTaskMangerAndDependent.ini';
+$config_file = __DIR__ . '/config/DartSpTaskMangerAndDependent.ini';
 
 // $config_file = __DIR__ . '/config/FlutterSpWidgetExampleOnly.ini';
 
@@ -26,8 +31,6 @@ $config_file = __DIR__ . '/config/TestEnv.ini';
 // dummy tenant setting
 // $config_file = __DIR__ . '/config/Tenant.ini';
 
-// dart_smart_parcel ONLY
-// $config_file = __DIR__ . '/config/DartSmartParcelOnly.ini';
 
 // $config_file = __DIR__ . '/config/DummyPartnerOrder.ini';
 
