@@ -8,57 +8,58 @@
 
 //=========== Configuration ============
 
+$config_files = [];
 // Test env
-// $config_file = __DIR__ . '/config/TestEnv.ini';
-
-// $config_file = __DIR__ . '/config/SmEvent.ini';
-
+$config_files[] = __DIR__ . '/config/TestEnv.ini';
+$config_files[] = __DIR__ . '/config/SmEvent.ini';
 // Geofence
-// $config_file = __DIR__ . '/config/Geofence.ini';
+$config_files[] = __DIR__ . '/config/Geofence.ini';
 
-// $config_file = __DIR__ . '/config/DomainDataSource.ini';
+$config_files[] = __DIR__ . '/config/DomainDataSource.ini';
 // dart_smart_parcel ONLY
-// $config_file = __DIR__ . '/config/DartSmartParcelOnly.ini';
+$config_files[] = __DIR__ . '/config/DartSmartParcelOnly.ini';
 
-// $config_file = __DIR__ . '/config/DartSpTaskMangerOnly.ini';
-$config_file = __DIR__ . '/config/DartSpTaskMangerAndDependent.ini';
+$config_files[] = __DIR__ . '/config/DartSpTaskMangerOnly.ini';
 
-// $config_file = __DIR__ . '/config/FlutterSpWidgetExampleOnly.ini';
+$config_files[] = __DIR__ . '/config/DartSpTaskMangerAndDependent.ini';
+
+$config_files[] = __DIR__ . '/config/FlutterSpWidgetExampleOnly.ini';
 
 // loginManager not completed yet
-// $config_file = __DIR__ . '/config/LoginManagerTestHelper.ini';
-// $config_file = __DIR__ . '/config/DummyPartnerOnlyData.ini';
+$config_files[] = __DIR__ . '/config/LoginManagerTestHelper.ini';
+$config_files[] = __DIR__ . '/config/DummyPartnerOnlyData.ini';
 // dummy tenant setting
-// $config_file = __DIR__ . '/config/Tenant.ini';
+$config_files[] = __DIR__ . '/config/Tenant.ini';
+$config_files[] = __DIR__ . '/config/DummyPartnerOrder.ini';
+
+foreach ($config_files as $config_file){
+    
 
 
-// $config_file = __DIR__ . '/config/DummyPartnerOrder.ini';
+    $config = parse_ini_file($config_file);
+
+    // Base folder: /Users/cliff/Documents/GitHub/dart_sp_test_helper
+    $base_folder = dirname(dirname(dirname(__DIR__))).'/dart_sp_test_helper/lib';
+
+    // project root: /Users/cliff/Documents/GitHub/
+    $projects_root = dirname(dirname($base_folder));
+    echo "Base folder: $base_folder\n";
+
+    $dry_run = false; // false to do the actual copy
 
 
-$config = parse_ini_file($config_file);
+    //=========== End of configuration ============
 
-// Base folder: /Users/cliff/Documents/GitHub/dart_sp_test_helper
-$base_folder = dirname(dirname(dirname(__DIR__))).'/dart_sp_test_helper/lib';
-
-// project root: /Users/cliff/Documents/GitHub/
-$projects_root = dirname(dirname($base_folder));
-echo "Base folder: $base_folder\n";
-
-$dry_run = false; // false to do the actual copy
+    $verbose = true; //$config['verbose'] ?? false;
+    if ($dry_run){
+        echo "Dry run mode\n";
+        // force verbose to be true
+        $verbose = true;
+    }
 
 
-//=========== End of configuration ============
-
-$verbose = true; //$config['verbose'] ?? false;
-if ($dry_run){
-    echo "Dry run mode\n";
-    // force verbose to be true
-    $verbose = true;
+    copyTestClass($base_folder, $projects_root, $config, $verbose, $dry_run);
 }
-
-
-copyTestClass($base_folder, $projects_root, $config, $verbose, $dry_run);
-
 
 function copyTestClass($base_folder, $projects_root, $config, bool $verbose, bool $dry_run){
    
